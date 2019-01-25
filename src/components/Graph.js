@@ -26,31 +26,42 @@ class Graph extends Component {
   }
 
   handleSubmit = e => {
-    
+
   }
 
   render() {
     return (
-      <div>
+      <div className='graph-container'>
+        <div>
           <VictoryPie
             width={300} height={200}
-            padding={{ left: 100, bottom: 20, top: 20 }}
+            padding={{ left: 20, bottom: 20, top: 20 }}
             data={this.formatGraphData(this.props.strategyData)}
-            innerRadius={75}
+            innerRadius={50}
             colorScale={["blue", "navy", "teal", "aqua"]}
             labels={() => null}
           />
+        </div>
+        <div>
           <svg width={300} height={300}>
-          <VictoryLegend standalone={false}
-            colorScale={["blue", "navy", "teal", "aqua"]}
-            x={20} y={40}
-            gutter={20}
-            centerTitle
-            style={{ border: { stroke: "black" } }}
-            data={this.formatLegendData(this.props.strategyData)}
-          />
-        </svg>
-        <input type='submit' value='Submit' onClick={this.handleClick}></input>
+            <VictoryLegend standalone={false}
+              colorScale={["blue", "navy", "teal", "aqua"]}
+              x={20} y={40}
+              gutter={20}
+              centerTitle
+              style={{ border: { stroke: "black" } }}
+              data={this.formatLegendData(this.props.strategyData)}
+            />
+          </svg>
+        </div>
+        <div>
+          <input
+            className='graph-submit-button'
+            type='submit'
+            value='Submit'
+            onClick={this.handleClick}>
+          </input>
+        </div>
       </div>
     );
   }

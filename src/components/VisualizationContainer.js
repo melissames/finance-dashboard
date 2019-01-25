@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class VisualizationContainer extends Component {
   render() {
     return (
-      <div>
+      <div className='visualization-container'>
         {this.props.submitted ? <Graph /> : <VizBeforeGraph />}
       </div>
     );
