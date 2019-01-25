@@ -39,15 +39,19 @@ export default function strategyReducer(state = defaultState, action){
           ...newState.formattedStrategyData
         }
       }
-    // case 'UPDATE_STRATEGY':
-    //   var newState = {...state}
-    //
-    // case 'FETCH_ARTWORK_SEARCH':
-    //   return {...state, submitted: true, artworkSearch: action.payload}
-    // case 'FETCH_ALL_COLLECTIONS':
-    //   return {...state, collectionLoading: true, allCollections: action.payload}
-    // case 'FETCH_COLOR_IMAGE':
-    //   return {...state, colorLoading: true, colorImage: action.payload}
+    case 'UPDATE_STRATEGY':
+      var newState = {...state};
+      for(let name in newState.formattedStrategyData){
+        if(name === action.name){
+          newState.formattedStrategyData[name] = parseInt(action.value)
+        }
+      }
+      return {
+        ...newState,
+        formattedStrategyData: {
+          ...newState.formattedStrategyData
+        }
+      }
     default:
       return state;
   }

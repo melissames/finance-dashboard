@@ -5,9 +5,8 @@ import { updateStrategy } from '../actions/actionCreators.js'
 class Strategy extends Component {
 
   handleChange = e => {
-    this.props.updateAllocation(e.target.name, e.target.value)
-    // console.log(e.target.value)
-    // console.log(e.target.name)
+    // console.log(e.target.name, e.target.value)
+    this.props.updateStrategy(e.target.name, e.target.value)
   }
 
   render() {
@@ -23,16 +22,4 @@ class Strategy extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    updateAllocation: (name, value) => {
-      dispatch({
-        type: "UPDATE_STRATEGY",
-        name,
-        value
-      });
-    }
-  };
-}
-
-export default connect(null, mapDispatchToProps)(Strategy);
+export default connect(null, { updateStrategy })(Strategy);
