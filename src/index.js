@@ -6,7 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import strategyReducer from './reducers/strategyReducer.js';
-import { composeWithDevTools } from 'redux-devtools-extension';
 
 const store = createStore(
   strategyReducer,
