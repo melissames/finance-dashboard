@@ -11,15 +11,15 @@ class StrategyList extends Component {
   }
 
   createTable = () => {
-    return this.props.strategyData.map(strategy => <Strategy key={strategy.id} strategy={strategy} />)
+    return this.props.strategyData.map(strategy => <Strategy key={strategy.name} id={strategy.name} strategy={strategy} />)
   }
 
   render() {
     return (
       <div className='strategy-list'>
-        <div>Index Crediting Strategies</div>
-        <div>1-Year P2P</div>
-        {this.createTable()}
+          <div>Index Crediting Strategies</div>
+          <div>1-Year P2P</div>
+          {this.createTable()}
       </div>
     );
   }
