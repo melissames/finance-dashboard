@@ -6,22 +6,9 @@ import { addStrategies } from '../actions/actionCreators.js'
 
 class StrategyList extends Component {
 
-  // updateStore = () => {
-  //   let formattedStrategyData = {}
-  //   this.state.strategyData.map(strategy => {
-  //     formattedStrategyData[strategy.name] = 0
-  //   });
-  //   this.updateStrategyPercentages(formattedStrategyData)
-  // }
-  //
-  // updateStrategyPercentages = formattedStrategyData => {
-  //   this.setState(prevState => ({
-  //     strategyPercentages: {
-  //       ...prevState.strategyPercentages,
-  //       strategyPercentages: formattedStrategyData
-  //     }
-  //   }))
-  // }
+  componentDidMount = () => {
+    this.props.addStrategies()
+  }
 
   createTable = () => {
     return this.props.strategyData.map(strategy => <Strategy key={strategy.id} strategy={strategy} />)

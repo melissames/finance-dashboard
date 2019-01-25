@@ -1,10 +1,9 @@
-const ADD_STRATEGY = "ADD_STRATEGY"
-const UPDATE_STRATEGY = "UPDATE_STRATEGY"
+export const ADD_STRATEGY = "ADD_STRATEGY"
+export const UPDATE_STRATEGY = "UPDATE_STRATEGY"
 
-export let addStrategies = data => {
+export let addStrategies = () => {
   return {
-    type: ADD_STRATEGY,
-    data
+    type: ADD_STRATEGY
   }
 }
 

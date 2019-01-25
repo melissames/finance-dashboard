@@ -28,12 +28,17 @@ const defaultState = {
 
 export default function strategyReducer(state = defaultState, action){
   switch(action.type){
-    case 'ADD_STRATEGY':
-      var newState = {...state}
+    case ADD_STRATEGY:
+      var newState = {...state};
       newState.strategyData.map(strategy => {
         newState.formattedStrategyData[strategy.name] = 0
       })
-      return newState
+      return {
+        ...newState,
+        formattedStrategyData: {
+          ...newState.formattedStrategyData
+        }
+      }
     // case 'UPDATE_STRATEGY':
     //   var newState = {...state}
     //
