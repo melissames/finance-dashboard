@@ -1,7 +1,7 @@
 export const ADD_STRATEGY = "ADD_STRATEGY"
 export const UPDATE_STRATEGY = "UPDATE_STRATEGY"
 export const STRATEGY_TOTAL = "CHECK_STRATEGY"
-export const RESET_TOTAL = "CHECK_STRATEGY"
+export const RESET_TOTAL = "RESET_STRATEGY"
 export const SUBMIT_STRATEGY = "SUBMIT_STRATEGY"
 
 export let addStrategies = () => {

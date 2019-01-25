@@ -25,11 +25,15 @@ class Graph extends Component {
     return formattedData
   }
 
+  handleSubmit = e => {
+    
+  }
+
   render() {
     return (
       <div>
           <VictoryPie
-            // width={300} height={200}
+            width={300} height={200}
             padding={{ left: 100, bottom: 20, top: 20 }}
             data={this.formatGraphData(this.props.strategyData)}
             innerRadius={75}
@@ -46,6 +50,7 @@ class Graph extends Component {
             data={this.formatLegendData(this.props.strategyData)}
           />
         </svg>
+        <input type='submit' value='Submit' onClick={this.handleClick}></input>
       </div>
     );
   }
