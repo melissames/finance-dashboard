@@ -1,4 +1,4 @@
-import { ADD_STRATEGY, UPDATE_STRATEGY, STRATEGY_TOTAL } from '../actions/actionCreators.js'
+import { ADD_STRATEGY, UPDATE_STRATEGY, STRATEGY_TOTAL, RESET_TOTAL, SUBMIT_STRATEGY } from '../actions/actionCreators.js'
 
 const defaultState = {
 
@@ -24,7 +24,9 @@ const defaultState = {
   }],
   formattedStrategyData: {},
   strategyPercentage: null,
-  oneHundredPercent: 'gray'
+  oneHundredPercent: 'gray',
+  disabled: true,
+  submitted: false
 
 };
 
@@ -64,13 +66,28 @@ export default function strategyReducer(state = defaultState, action){
         }
         if(total === 100){
           newState.oneHundredPercent = 'green';
+          newState.disabled = false;
         } else {
           newState.oneHundredPercent = 'red';
+          newState.disabled = true;
         }
       }
       return {
         ...newState,
         strategyPercentage: total
+      }
+    case RESET_TOTAL:
+      var newState = {...state}
+      return {
+        ...newState,
+        strategyPercentage: null,
+        submitted: false
+      }
+    case SUBMIT_STRATEGY:
+      var newState = {...state}
+      return {
+        ...newState,
+        submitted: true
       }
     default:
       return state;

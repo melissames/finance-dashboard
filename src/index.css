@@ -119,10 +119,11 @@ input:checked + .slider:before {
 /* StrategyList */
 
 .strategy-list {
-  display: grid;
+  display: inline-grid;
   grid-template-columns: 40% 60%;
   border-color: black;
   border-width: 1px;
+  text-align: center;
 }
 
 
