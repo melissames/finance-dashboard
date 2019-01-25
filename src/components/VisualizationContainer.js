@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
+import VizBeforeGraph from './VizBeforeGraph.js';
+import Graph from './Graph.js';
+import { connect } from 'react-redux';
 
 class VisualizationContainer extends Component {
   render() {
     return (
-      <div className='visualization-container'>
+      <div>
+        {this.props.submitted ? <Graph /> : <VizBeforeGraph />}
       </div>
     );
   }
 }
 
-export default VisualizationContainer;
+const mapStateToProps = reduxState => {
+  return {
+    submitted: reduxState.submitted
+  }
+}
+
+export default connect(mapStateToProps)(VisualizationContainer);
