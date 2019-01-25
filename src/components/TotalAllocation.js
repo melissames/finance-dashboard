@@ -4,8 +4,9 @@ import { addStrategies, resetTotal, updateStrategy, submittedStrategy } from '..
 
 class TotalAllocation extends Component {
 
-  handleClick = () => {
-    this.props.submittedStrategy()
+  handleSubmit = e => {
+    e.preventDefault();
+    this.props.submittedStrategy();
   }
 
   handleReset = () => {
@@ -17,15 +18,28 @@ class TotalAllocation extends Component {
   render() {
     return (
       <div className='total-allocation'>
-        <div>
-          <div className='total-percentage-box' style={{borderColor: this.props.color}}>{this.props.totalPercentage ? `${this.props.totalPercentage}%` : null}</div>
-          <div>TotalAllocation</div>
+        <div className='total-allocation-list'>
+          <div className='total-percentage-grouping-left'>
+            <div className='total-percentage-box' style={{borderColor: this.props.color}}>
+              {this.props.totalPercentage ? `${this.props.totalPercentage}%` : null}
+            </div>
+            <div className='total-allocation-font'>Total Allocation</div>
+          </div>
+          <div className='total-percentage-grouping-right'>
+            <input
+              className='confirm-button'
+              type='submit'
+              value='Confirm'
+              disabled={this.props.disabled}
+              onClick={this.handleSubmit}></input>
+              <input
+                className='reset-button'
+                type='reset'
+                onClick={this.handleReset}>
+              </input>
+            </div>
+          </div>
         </div>
-        <div>
-          <input type='submit' value='Confirm' disabled={this.props.disabled} onClick={this.handleClick}></input>
-          <input type='reset' onClick={this.handleReset}></input>
-        </div>
-      </div>
     );
   }
 }
