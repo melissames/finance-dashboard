@@ -17,9 +17,9 @@ class StrategyList extends Component {
   render() {
     return (
       <div className='strategy-list'>
-          <div>Index Crediting Strategies</div>
-          <div>1-Year P2P</div>
-          {this.createTable()}
+        <div className='index-strategies-title'>Index Crediting Strategies</div>
+        <div className='yearly-strategies-title'>1-Year P2P</div>
+        {this.createTable()}
       </div>
     );
   }

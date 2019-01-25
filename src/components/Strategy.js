@@ -12,10 +12,10 @@ class Strategy extends Component {
   render() {
     return (
       <React.Fragment>
-        <div>{this.props.strategy.name}</div>
-        <div>
+        <div className='table-cell'>{this.props.strategy.name}</div>
+        <div className='table-cell'>
           {this.props.strategy.options[0].value/this.props.strategy.options[0].years}% Cap
-          <input type='number' name={this.props.strategy.name} onChange={this.handleChange}></input>
+          <input className='table-input' type='number' name={this.props.strategy.name} onChange={this.handleChange}></input>
         </div>
       </React.Fragment>
     );

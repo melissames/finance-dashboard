@@ -204,8 +204,38 @@ input:checked + .slider:before {
   border-color: black;
   border-width: 1px;
   text-align: center;
+  margin: 5%;
 }
 
+.index-strategies-title {
+  font-weight: bold;
+  border: solid 1px #D4D4D4;
+  background-color: #ECECEC;
+  color: #233359;
+  text-align: left;
+  padding: 5%;
+}
+
+.yearly-strategies-title {
+  border: solid 1px #D4D4D4;
+  background-color: #ECECEC;
+  color: #233359;
+  padding: 5%;
+}
+
+.table-cell {
+  border: solid 1px #D4D4D4;
+  color: #233359;
+  padding: 5%;
+}
+
+.table-input {
+  border: solid 1px #1E4D8E;
+  height: 25px;
+  width: 50px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
 
 /* TotalAllocation */
 
@@ -234,7 +264,6 @@ input:checked + .slider:before {
   border: 1px solid red;
   text-align: center;
   border-radius: 5px;
-  margin-right: 10px;
 }
 
 .total-allocation-list {
