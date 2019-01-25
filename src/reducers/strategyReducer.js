@@ -1,4 +1,4 @@
-import { ADD_STRATEGY, UPDATE_STRATEGY } from '../actions/actionCreators.js'
+import { ADD_STRATEGY, UPDATE_STRATEGY, STRATEGY_TOTAL } from '../actions/actionCreators.js'
 
 const defaultState = {
 
@@ -22,7 +22,8 @@ const defaultState = {
     "name": "Bloomberg Commodity Index",
     "options": [{"years": "1", "value": "6.15"}]
   }],
-  formattedStrategyData: {}
+  formattedStrategyData: {},
+  strategyPercentage: null
 
 };
 
@@ -39,7 +40,7 @@ export default function strategyReducer(state = defaultState, action){
           ...newState.formattedStrategyData
         }
       }
-    case 'UPDATE_STRATEGY':
+    case UPDATE_STRATEGY:
       var newState = {...state};
       for(let name in newState.formattedStrategyData){
         if(name === action.name){
@@ -51,6 +52,19 @@ export default function strategyReducer(state = defaultState, action){
         formattedStrategyData: {
           ...newState.formattedStrategyData
         }
+      }
+    case STRATEGY_TOTAL:
+      var newState = {...state};
+      for(let name in newState.formattedStrategyData){
+        if(newState.formattedStrategyData[name] === 0){
+          newState.strategyPercentage += newState.formattedStrategyData[name]
+        } else {
+          newState.strategyPercentage = newState.formattedStrategyData[name]
+        }
+      }
+      return {
+        ...newState,
+        strategyPercentage: newState.strategyPercentage
       }
     default:
       return state;
