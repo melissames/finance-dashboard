@@ -23,7 +23,8 @@ const defaultState = {
     "options": [{"years": "1", "value": "6.15"}]
   }],
   formattedStrategyData: {},
-  strategyPercentage: null
+  strategyPercentage: null,
+  oneHundredPercent: 'gray'
 
 };
 
@@ -55,16 +56,21 @@ export default function strategyReducer(state = defaultState, action){
       }
     case STRATEGY_TOTAL:
       var newState = {...state};
-      for(let name in newState.formattedStrategyData){
-        if(newState.formattedStrategyData[name] === 0){
-          newState.strategyPercentage += newState.formattedStrategyData[name]
+      var total = 0
+      var valueArray = Object.values(newState.formattedStrategyData)
+      for(let value of valueArray){
+        if(typeof value === 'number'){
+          total += value;
+        }
+        if(total === 100){
+          newState.oneHundredPercent = 'green';
         } else {
-          newState.strategyPercentage = newState.formattedStrategyData[name]
+          newState.oneHundredPercent = 'red';
         }
       }
       return {
         ...newState,
-        strategyPercentage: newState.strategyPercentage
+        strategyPercentage: total
       }
     default:
       return state;

@@ -15,7 +15,7 @@ class Strategy extends Component {
         <div>{this.props.strategy.name}</div>
         <div>
           {this.props.strategy.options[0].value/this.props.strategy.options[0].years}% Cap
-          <input type='text' name={this.props.strategy.name} onChange={this.handleChange}></input>
+          <input type='number' name={this.props.strategy.name} onChange={this.handleChange}></input>
         </div>
       </React.Fragment>
     );
