@@ -1,5 +1,6 @@
 export const ADD_STRATEGY = "ADD_STRATEGY"
 export const UPDATE_STRATEGY = "UPDATE_STRATEGY"
+export const STRATEGY_TOTAL = "CHECK_STRATEGY"
 
 export let addStrategies = () => {
   return {
@@ -12,5 +13,11 @@ export let updateStrategy = (name, value) => {
     type: UPDATE_STRATEGY,
     name,
     value
+  }
+}
+
+export let strategyTotal = () => {
+  return {
+    type: STRATEGY_TOTAL
   }
 }

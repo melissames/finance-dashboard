@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateStrategy } from '../actions/actionCreators.js'
+import { updateStrategy, strategyTotal } from '../actions/actionCreators.js'
 
 class Strategy extends Component {
 
   handleChange = e => {
-    // console.log(e.target.name, e.target.value)
-    this.props.updateStrategy(e.target.name, e.target.value)
+    this.props.updateStrategy(e.target.name, e.target.value);
+    this.props.strategyTotal();
   }
 
   render() {
@@ -22,4 +22,4 @@ class Strategy extends Component {
   }
 }
 
-export default connect(null, { updateStrategy })(Strategy);
+export default connect(null, { updateStrategy, strategyTotal })(Strategy);
